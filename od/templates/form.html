@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        /* Styles for form container */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Styles for form */
+        form {
+            width: 300px; /* Adjust as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Styles for form inputs */
+        label, input[type="text"], input[type="email"], input[type="date"], input[type="file"], input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for menu bar */
+        .menu-bar {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        /* Styles for menu items */
+        .menu-item {
+            display: inline;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* Hover styles for menu items */
+        .menu-item:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <div class="menu-item" onclick="location.href='/adminlogin'">Admin</div>
+        <div class="menu-item" onclick="location.href='/about'">About</div>
+        <!-- Add more menu items as needed -->
+    </div>
+    <div class="form-container">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <h1>Event Form</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="roll_number">Roll Number:</label>
+            <input type="text" id="roll_number" name="roll_number" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="college_name">College Name:</label>
+            <input type="text" id="college_name" name="college_name" required><br><br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <label for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" required><br><br>
+
+            <label for="poster">Event Poster Image:</label>
+            <input type="file" id="poster" name="poster" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

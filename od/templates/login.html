@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        /* Styles for form container */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Styles for form */
+        form {
+            width: 300px; /* Adjust as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Styles for form inputs */
+        label, input[type="text"], input[type="password"], input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+    <div class="form-container">
+        <form action="/login" method="post">
+            <h1>Login</h1>
+            <label for="admin_username">Username:</label>
+            <input type="text" id="admin_username" name="admin_username" required><br><br>
+
+            <label for="admin_password">Password:</label>
+            <input type="password" id="admin_password" name="admin_password" required><br><br>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

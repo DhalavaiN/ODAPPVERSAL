@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <table>
+        <tr>
+            <th>Event ID</th>
+            <th>Event Name</th>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>College Name</th>
+            <th>Date</th>
+            <th>Poster URL</th>
+            <th>Approval Status</th>
+            <th>Update Approval</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td>{{ event._id }}</td>
+            <td>{{ event.event_name }}</td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.roll_number }}</td>
+            <td>{{ event.college_name }}</td>
+            <td>{{ event.date }}</td>
+            <td><a href="{{ event.poster_url }}" target="_blank">{{ event.poster_url }}</a></td>
+            <td>{{ event.is_approved }}</td>
+            <td>
+                <form action="/admin/update_approval" method="post">
+                    <input type="hidden" name="event_id" value="{{ event._id }}">
+                    <select name="is_approved">
+                        <option value="true">Approved</option>
+                        <option value="false">Not Approved</option>
+                    </select>
+                    <input type="submit" value="Update">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
